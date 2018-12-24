@@ -824,6 +824,9 @@ vendor/lib64/vendor.qti.hardware.tui_comm@1.0.so
 vendor/bin/cnss-daemon
 vendor/bin/nv_mac
 
+# Soter
+-app/SoterService/SoterService.apk
+
 # WiFi Display
 bin/wfdservice
 etc/init/wfdservice.rc
