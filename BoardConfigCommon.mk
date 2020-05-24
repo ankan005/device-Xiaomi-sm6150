@@ -27,6 +27,7 @@ BOARD_ANT_WIRELESS_DEVICE := "qualcomm-hidl"
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := sm6150
 TARGET_NO_BOOTLOADER := true
+BOARD_USES_ADRENO := true
 
 # Android Verified Boot
 BOARD_AVB_ENABLE := true
@@ -74,6 +75,17 @@ BOARD_USES_ALSA_AUDIO := true
 TARGET_USES_QCOM_MM_AUDIO := true
 USE_CUSTOM_AUDIO_POLICY := 1
 USE_XML_AUDIO_POLICY_CONF := 1
+
+#Omni Target
+TARGET_QCOM_DISPLAY_VARIANT := caf-sm8150
+ TARGET_QCOM_AUDIO_VARIANT := caf-sm8150
+TARGET_QCOM_MEDIA_VARIANT := caf-sm8150
+TARGET_QCOM_BLUETOOTH_VARIANT := caf-sm8150
+
+PRODUCT_SOONG_NAMESPACES += \
+    hardware/qcom/audio-$(TARGET_QCOM_AUDIO_VARIANT) \
+    hardware/qcom/display-$(TARGET_QCOM_DISPLAY_VARIANT) \
+    hardware/qcom/media-$(TARGET_QCOM_MEDIA_VARIANT)
 
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(COMMON_PATH)/bluetooth/include
@@ -201,6 +213,7 @@ include device/qcom/sepolicy/sepolicy.mk
 BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(COMMON_PATH)/sepolicy/private
 BOARD_PLAT_PUBLIC_SEPOLICY_DIR += $(COMMON_PATH)/sepolicy/public
 BOARD_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/vendor
+include vendor/omni/sepolicy/sepolicy.mk
 
 # WiFi
 BOARD_HOSTAPD_DRIVER := NL80211
