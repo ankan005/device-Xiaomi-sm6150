@@ -193,9 +193,13 @@ PRODUCT_PACKAGES += \
     qcom.fmradio
 
 # Framework detect
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
     libqti_vndfwk_detect.vendor \
     libvndfwk_detect_jni.qti.vendor
+
+#qmi
+PRODUCT_PACKAGES += \
+    libqti_vndfwk_detect
 
 # GPS
 PRODUCT_PACKAGES += \
